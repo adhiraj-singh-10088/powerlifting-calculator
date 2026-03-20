@@ -20,16 +20,22 @@ def round_weight(weight, base):
     return rounded_weight
 
 program = {
-    1: {5x5: 6.5,
-        3x3: 7,
-        1x1: 8},
-    2: {5x5: 7.5,
-        3x3: 8,
-        1x1: 8.5},
-    3: {5x5: 8,
-        3x3: 8.5,
-        1x1: 9.5},
-    4: {5x5: 8.5,
-        3x3: 9.5,
-        1x1: 10}
+    1: {"5x5": 6.5,
+        "3x3": 7,
+        "1x1": 8},
+    2: {"5x5": 7.5,
+        "3x3": 8,
+        "1x1": 8.5},
+    3: {"5x5": 8,
+        "3x3": 8.5,
+        "1x1": 9.5},
+    4: {"5x5": 8.5,
+        "3x3": 9.5,
+        "1x1": 10}
 }
+
+microcycle = "3x3"
+mesocycle = 2
+
+target_reps = int(microcycle.split("x")[0])
+target_rpe = program[mesocycle][microcycle]
