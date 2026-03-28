@@ -1,6 +1,7 @@
 import streamlit as st
 
-# ---------- FUNCTIONS ----------
+
+#Calculating Functions
 
 def estimate_1rm(weight, reps, rpe):
     rir = 10 - rpe
@@ -21,7 +22,7 @@ def round_weight(weight, base):
     return round(rounded, 1)
 
 
-# ---------- PROGRAM DATA ----------
+#Program Data
 
 program = {
     1: {"5x5": 6.5, "3x3": 7, "1x1": 8},
@@ -30,7 +31,8 @@ program = {
     4: {"5x5": 8.5, "3x3": 9.5, "1x1": 10}
 }
 
-# ---------- UI ----------
+
+#UI
 
 st.title("🏋️ Powerlifting Load Calculator")
 
@@ -41,7 +43,8 @@ current_weight = st.number_input("Weight (kg)", min_value=0.0, step=2.5)
 current_reps = st.number_input("Reps", min_value=1, step=1)
 current_rpe = st.number_input("RPE", min_value=1.0, max_value=10.0, step=0.5)
 
-# ---------- MODE LOGIC ----------
+
+#Choosing a mode
 
 if mode == "Manual":
     st.subheader("Target Set")
@@ -60,11 +63,11 @@ elif mode == "5/3/1":
 
     st.write(f"Target: {target_reps} reps @ RPE {target_rpe}")
 
-# ---------- ROUNDING ----------
+#Rounding weight
 
 rounding = st.selectbox("Round to", [2.5, 5.0])
 
-# ---------- CALCULATE ----------
+#Calculating
 
 if st.button("Calculate Next Weight"):
     suggested = suggest_weight(
